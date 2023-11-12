@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
-import { EntityManager, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Item } from './entities/item.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -10,7 +10,6 @@ export class ItemsService {
   constructor(
     @InjectRepository(Item)
     private readonly itemRepository: Repository<Item>,
-    private readonly entityManager: EntityManager,
   ) {}
 
   async create(createItemDto: CreateItemDto) {
